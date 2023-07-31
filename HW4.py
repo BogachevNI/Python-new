@@ -29,16 +29,25 @@ list_1 = [randint(0, 10) for i in range(n)]
 print(list_1)
 list_2 = []
 
-for i in range(n):
-    list_1.append(list_1[i])
-for i in range(n):
-    list_1.append(list_1[i])
-print(list_1)
+# for i in range(n):
+#     list_1.append(list_1[i])
+# for i in range(n):
+#     list_1.append(list_1[i])
+# print(list_1)
+# for i in range(n, n+n, 1):
+#     sum = 0
+#     sum = list_1[i] + list_1[i+1] + list_1[i-1]
+#     list_2.append(sum)
+# print(list_2)
 
-for i in range(n, n+n, 1):
-    sum = 0
-    sum = list_1[i] + list_1[i+1] + list_1[i-1]
-    list_2.append(sum)
-print(list_2)
+for i in range(len(list_1)):
+    if i == 0:
+        list_2.append(list_1[-1] + list_1[0] + list_1[1])
+    elif i == len(list_1) - 1:
+        list_2.append(list_1[-2] + list_1[-1] + list[0])
+    else:
+        list_2.append(list_1[i - 1] + list_1[i] + list_1[i + 1])
 
-print(f'Максимальное количество ягод, которое можно собрать одновременно: {sorted(list_2, reverse=True)[0]}')
+print(max(list_2))
+
+# print(f'Максимальное количество ягод, которое можно собрать одновременно: {sorted(list_2, reverse=True)[0]}')
